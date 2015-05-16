@@ -1,7 +1,12 @@
 # Makefile for top level of lmbench
 SHELL = /bin/sh
 MAKE = make
+ARCH = uClinux/arm
 OS = $(shell scripts/os)
+
+syscall_build:
+	@mkdir -p bin/$(OS)
+	@$(MAKE) -C some_package
 
 build:
 	@mkdir -p bin/$(OS)
@@ -17,7 +22,7 @@ doc:
 	@$(MAKE) -C doc install
 
 clean: 
-	@for i in doc src; do ($(MAKE) -C $$i clean); done
+	@for i in doc src some_package; do ($(MAKE) -C $$i clean); done
 	@/bin/rm -rf bin/*
 
 info: 
