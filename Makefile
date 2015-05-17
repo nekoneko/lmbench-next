@@ -1,8 +1,7 @@
 # Makefile for top level of lmbench
 SHELL = /bin/sh
 MAKE = make
-ARCH = uClinux/arm
-OS = $(shell scripts/os)
+OS = $(shell ARCH=uClinux/arm scripts/os)
 
 syscall_build:
 	@mkdir -p bin/$(OS)

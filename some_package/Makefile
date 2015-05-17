@@ -2,7 +2,6 @@
 SHELL = /bin/sh
 
 CROSS_COMPILE=arm-uclinuxeabi-
-ARCH=uClinux/arm
 
 CC = gcc
 LD = gcc
@@ -12,7 +11,7 @@ ARCREATE = cr
 RANLIB = ranlib
 
 INSTALL_PATH = /usr/local
-OS = $(shell ../scripts/os)
+OS = $(shell ARCH=uClinux/arm ../scripts/os)
 O = ../bin/$(OS)
 CONFIG = ../bin/$(OS)/`../scripts/config`
 CFLAGS = -O2 -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_socklen_t -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1
