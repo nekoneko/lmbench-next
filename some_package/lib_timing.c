@@ -265,7 +265,7 @@ benchmp(benchmp_f initialize,
 #ifdef _DEBUG
 		fprintf(stderr, "benchmp(%p, %p, %p, %d, %d, %d, %d, %p): creating child %d\n", initialize, benchmark, cleanup, enough, parallel, warmup, repetitions, cookie, i);
 #endif
-		switch(pids[i] = fork()) {
+		switch(pids[i] = vfork()) {
 		case -1:
 			/* could not open enough children! */
 #ifdef _DEBUG
